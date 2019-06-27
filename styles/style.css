@@ -49,10 +49,10 @@ input.radio-tab:checked + label {
     width: 100%;
 }
 
-input.radio-tab1:checked ~ .tab1-container {
+input.radio-tab1:checked ~ .tab-ru-container {
     display: block;
 }
 
-input.radio-tab2:checked ~ .tab2-container {
+input.radio-tab2:checked ~ .tab-eng-container {
     display: block;
 }
