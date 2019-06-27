@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Prabhat Samgiita</title>
+  <link rel="stylesheet" href="styles/awesomplete.css">
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 <div class="container">
+  <div class="input-container">
+    <label id="combobox">
+      <input type="text" id="autocompele-input" class="dropdown-input">
+      <button class="dropdown-btn" type="button">
+        <span class="caret"></span>
+      </button>
+    </label>
+  </div>
   <div class="item">
     <h4 class="title">
       2036
@@ -87,6 +96,7 @@
 
 </div>
 <script src="scripts/jQurery.js"></script>
+<script src="scripts/awesomplete.min.js"></script>
 <script src="scripts/script.js"></script>
 </body>
 </html>
