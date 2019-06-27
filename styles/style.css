@@ -1,5 +1,6 @@
 body {
     font-family: Arial;
+    margin: 0;
 }
 
 @media (min-width: 1200px) {
@@ -8,12 +9,16 @@ body {
     }
 }
 
+.item {
+    padding: 0 20px;
+}
 
+/*Tabs*/
 .tabs-wrapper {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding: 0 10px;
+    padding: 20px 0 40px;
     position: relative;
 }
 
@@ -47,6 +52,7 @@ input.radio-tab:checked + label {
 .tab-container {
     display: none;
     width: 100%;
+    padding-top: 20px;
 }
 
 input.radio-tab1:checked ~ .tab-ru-container {
@@ -55,4 +61,11 @@ input.radio-tab1:checked ~ .tab-ru-container {
 
 input.radio-tab2:checked ~ .tab-eng-container {
     display: block;
+}
+
+/*Video*/
+
+.video iframe {
+    width: 100%;
+    max-width: 560px;
 }

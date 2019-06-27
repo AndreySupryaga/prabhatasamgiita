@@ -5,6 +5,7 @@ $(function () {
         original: $('.original-text'),
         tabEng: $('.tab-eng-container'),
         tabRu: $('.tab-ru-container'),
+        video: $('.video')
     };
 
     $.getJSON( "poems.json", function( data ) {
@@ -22,6 +23,9 @@ $(function () {
         }
         if (poem.locale.en) {
             el.tabEng[0].innerHTML = poem.locale.en;
+        }
+        if (poem.video) {
+            el.video[0].innerHTML = poem.video;
         }
         el.original[0].innerHTML = poem.text;
     }
