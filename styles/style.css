@@ -1,0 +1,58 @@
+body {
+    font-family: Arial;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+
+.tabs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 10px;
+    position: relative;
+}
+
+input.radio-tab {
+    position: absolute;
+    left: -99999em;
+    top: -99999em;
+}
+
+input.radio-tab + label {
+    cursor: pointer;
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    background-color: #fff;
+    margin-right: -1px;
+    padding: 0.5em 1em;
+    position: relative;
+}
+
+input.radio-tab + label:hover {
+    background-color: #eee;
+}
+
+input.radio-tab:checked + label {
+    box-shadow: 0 3px 0 -1px #fff, inset 0 5px 0 -1px #13cd4a;
+    background-color: #fff;
+    border-color: #428bca;
+    z-index: 1;
+}
+
+.tab-container {
+    display: none;
+    width: 100%;
+}
+
+input.radio-tab1:checked ~ .tab1-container {
+    display: block;
+}
+
+input.radio-tab2:checked ~ .tab2-container {
+    display: block;
+}
