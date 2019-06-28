@@ -89,6 +89,10 @@ $(function () {
             }
         });
 
+        Awesomplete.$('.clear').addEventListener("click", function () {
+            el.input.val('');
+        });
+
         document.getElementById('autocompele-input').addEventListener("awesomplete-select", function (event) {
             const poem = getPoemObject(list, event.text.label);
             setPoemToMarkup(poem);
