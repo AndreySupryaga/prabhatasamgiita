@@ -9,15 +9,16 @@ $(function () {
         tabElementsEn: $('.tab-el-en'),
         tabRu: $('.tab-ru-container'),
         tabElementsRu: $('.tab-el-ru'),
-        video: $('.video')
+        video: $('.video'),
+        allPoems: $('.all-poems')
     };
 
+
     $.getJSON("poems.json", function (poems) {
-        const poemNumber = getPoemNumberFromQueryString();
-        const poem = getPoemObject(poems, poemNumber) || poems[0];
-        el.input.val(poem.value);
+        const poem = getPoemObject(poems);
         setPoemToMarkup(poem);
         awesomeCompleteInit(poems);
+        addAllPoemsLinksToMarkup(poems);
     });
 
     /**
@@ -25,6 +26,7 @@ $(function () {
      * @param poem
      */
     function setPoemToMarkup(poem) {
+        el.input.val(poem.value);
         el.title[0].innerHTML = poem.value;
         el.original[0].innerHTML = poem.text;
         if (poem.video) {
@@ -33,6 +35,7 @@ $(function () {
         setLocaleRu(poem);
         setLocaleEn(poem);
         el.tabLabel.filter(':visible:first').prev().prop('checked', true);
+        initIframeResize();
     }
 
     function setLocaleRu(poem) {
@@ -57,13 +60,33 @@ $(function () {
 
     /**
      * Get poem object
+     * @param poems
      * @param label
      * @returns {*}
      */
-    function getPoemObject(poems, label) {
+    function getPoemObject(poems) {
+        const poemNumber = getPoemNumberFromQueryString();
         return poems.filter(function (item) {
-            return item.label === label;
-        })[0];
+            return item.label === poemNumber;
+        })[0] || poems[0];
+    }
+
+
+    function addAllPoemsLinksToMarkup(poems) {
+        let poemsMarkupString = '';
+        for (let i = 0; i < poems.length; i++) {
+            poemsMarkupString += '<span data-number="' + poems[i].label + '" >' + poems[i].label + ' </span>'
+        }
+        el.allPoems.append(poemsMarkupString);
+
+        el.allPoems.on('click', 'span', function () {
+            const poemNumber = $(this).data('number');
+            if (poemNumber !== +getPoemNumberFromQueryString()) {
+                updateQueryStringParam('poem', $(this).data('number'));
+                const poem = getPoemObject(poems);
+                setPoemToMarkup(poem);
+            }
+        })
     }
 
     /**
@@ -121,5 +144,17 @@ $(function () {
         const params = new URLSearchParams(location.search);
         return params.get('poem');
     }
+
+    /**
+     * Video Auto resize
+     */
+    function initIframeResize() {
+        $(window).resize(function () {
+            const iframe = el.video.children();
+            iframe.height(iframe.width() / 1.815);
+
+        }).trigger('resize');
+    }
+
 });
 

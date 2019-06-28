@@ -11,6 +11,7 @@ body {
     font-size: 16px;
     padding-bottom: 30px;
 }
+
 .original-text {
     line-height: 1.4;
 }
@@ -18,6 +19,7 @@ body {
 .title {
     font-size: 18px;
 }
+
 @media (min-width: 600px) {
     .container {
         max-width: 560px;
@@ -31,7 +33,7 @@ body {
 }
 
 .input-container {
-    padding: 30px 20px 0;
+    padding: 20px 20px 0;
 }
 
 .input-container label {
@@ -122,4 +124,14 @@ input.radio-tab2:checked ~ .tab-en-container {
     .video iframe {
         height: 158px;
     }
+}
+
+.all-poems {
+    padding: 20px 20px 0;
+}
+
+.all-poems span {
+    cursor: pointer;
+    color: hsl(33, 80%, 60%);
+    font-size: 14px;
 }

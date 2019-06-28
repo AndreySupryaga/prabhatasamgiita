@@ -156,6 +156,8 @@ input:focus {
     height: 36px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    cursor: pointer;
+    outline: none;
 }
 
 #combobox .caret {
@@ -184,6 +186,7 @@ input:focus {
 .clear:hover {
     opacity: 1;
 }
+
 .clear:before, .clear:after {
     position: absolute;
     left: 5px;
@@ -192,9 +195,11 @@ input:focus {
     width: 2px;
     background-color: #333;
 }
+
 .clear:before {
     transform: rotate(45deg);
 }
+
 .clear:after {
     transform: rotate(-45deg);
 }
