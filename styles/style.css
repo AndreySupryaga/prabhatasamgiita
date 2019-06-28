@@ -9,6 +9,10 @@ body {
 
 .container {
     font-size: 16px;
+    padding-bottom: 30px;
+}
+.original-text {
+    line-height: 1.4;
 }
 
 @media (min-width: 600px) {
@@ -26,6 +30,7 @@ body {
 .input-container {
     padding: 40px 20px 20px;
 }
+
 .input-container label {
     display: flex;
 }
@@ -89,4 +94,28 @@ input.radio-tab2:checked ~ .tab-en-container {
 .video iframe {
     width: 100%;
     max-width: 560px;
+}
+
+@media (max-width: 420px) {
+    .video iframe {
+        height: 210px;
+    }
+}
+
+@media (max-width: 376px) {
+    .video iframe {
+        height: 190px;
+    }
+}
+
+@media (max-width: 360px) {
+    .video iframe {
+        height: 180px;
+    }
+}
+
+@media (max-width: 320px) {
+    .video iframe {
+        height: 158px;
+    }
 }
