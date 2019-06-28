@@ -1,46 +1,82 @@
 $(function () {
 
     const el = {
+        input: $('#autocompele-input'),
         title: $('.title'),
+        tabLabel: $('.tab-label'),
         original: $('.original-text'),
-        tabEng: $('.tab-eng-container'),
+        tabEn: $('.tab-en-container'),
+        tabElementsEn: $('.tab-el-en'),
         tabRu: $('.tab-ru-container'),
-        video: $('.video'),
-        input: $('#autocompele-input')
+        tabElementsRu: $('.tab-el-ru'),
+        video: $('.video')
     };
+    let poemsArr = [];
 
-    $.getJSON("poems.json", function (data) {
-        console.log(data);
-        const poem = data[0];
+    $.getJSON("poems.json", function (poems) {
+        poemsArr = poems;
+        const poemNumber = getPoemNumberFromQueryString();
+        const poem = getPoemObject(poemNumber) || poems[0];
         setPoemToMarkup(poem);
-        awesomeCompleteInit(data);
+        awesomeCompleteInit(poemsArr);
     });
 
-
+    /**
+     * Set object to markup
+     * @param poem
+     */
     function setPoemToMarkup(poem) {
         el.title[0].innerHTML = poem.value;
         el.original[0].innerHTML = poem.text;
-        if (poem.locale.ru) {
-            el.tabRu[0].innerHTML = poem.locale.ru;
-        }
-        if (poem.locale.en) {
-            el.tabEng[0].innerHTML = poem.locale.en;
-        }
         if (poem.video) {
             el.video[0].innerHTML = poem.video;
         }
-        el.original[0].innerHTML = poem.text;
+        setLocaleRu(poem);
+        setLocaleEn(poem);
+        el.tabLabel.filter(':visible:first').prev().prop('checked', true);
     }
 
+    function setLocaleRu(poem) {
+        if (poem.locale.ru) {
+            el.tabRu[0].innerHTML = poem.locale.ru;
+            el.tabElementsRu.show();
+        } else {
+            el.tabElementsRu.hide();
+            el.tabRu[0].innerHTML = ''
+        }
+    }
+
+    function setLocaleEn(poem) {
+        if (poem.locale.en) {
+            el.tabEn[0].innerHTML = poem.locale.en;
+            el.tabElementsEn.show();
+        } else {
+            el.tabEn[0].innerHTML = '';
+            el.tabElementsEn.hide();
+        }
+    }
+
+    /**
+     * Get poem object
+     * @param label
+     * @returns {*}
+     */
+    function getPoemObject(label) {
+        return poemsArr.filter(function (item) {
+            return item.label === label;
+        })[0];
+    }
+
+    /**
+     * Init awesomecomplete plugin
+     * @param list
+     */
     function awesomeCompleteInit(list) {
         const comboplete = new Awesomplete('#autocompele-input', {
             minChars: 0,
             list: list,
             autoFirst: true,
             maxItems: 20,
-            select: function (item) {
-                console.log(item);
-            }
         });
 
         Awesomplete.$('.dropdown-btn').addEventListener("click", function () {
@@ -54,11 +90,34 @@ $(function () {
             }
         });
 
-        comboplete.select(function (item) {
-                console.log(item);
-            }
-        )
+        document.getElementById('autocompele-input').addEventListener("awesomplete-select", function (event) {
+            console.log(event.text.label, event.text.value);
+            const poem = getPoemObject(event.text.label);
+            setPoemToMarkup(poem);
+            updateQueryStringParam('poem', poem.label);
+        });
     }
 
+    /**
+     * Update query string param
+     * @param key
+     * @param value
+     */
+    function updateQueryStringParam(key, value) {
+        let uri = window.location.href;
+        const re = new RegExp("([?|&])" + key + "=.*?(&|$)", "i");
+        const separator = uri.indexOf('?') !== -1 ? "&" : "?";
+        if (uri.match(re)) {
+            uri = uri.replace(re, '$1' + key + "=" + value + '$2');
+        } else {
+            uri = uri + separator + key + "=" + value;
+        }
+        window.history.replaceState({}, "", uri);
+    }
+
+    function getPoemNumberFromQueryString() {
+        const params = new URLSearchParams(location.search);
+        return params.get('poem');
+    }
 });
 
