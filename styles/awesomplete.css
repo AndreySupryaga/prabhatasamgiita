@@ -118,9 +118,8 @@ button {
 }
 
 input {
-	width: 12em;
+	width: 240px;
 	padding: .1em .3em;
-	border: 0;
 	border: 1px solid hsl(35, 80%, 60%);
 	background: hsla(0,0%,100%,.2);
 	border-radius: .3em;
