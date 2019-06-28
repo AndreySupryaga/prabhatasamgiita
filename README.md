@@ -1,1 +1,2 @@
-https://andreysupryaga.github.io/prabhatsamgiita/?poem=766
+https://andreysupryaga.github.io/prabhatsamgiita/
+
