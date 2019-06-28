@@ -145,6 +145,7 @@ input:focus {
 #combobox .dropdown-input {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
+	padding-left: 10px;
 }
 #combobox .dropdown-btn {
 	vertical-align: top;

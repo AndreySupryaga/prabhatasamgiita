@@ -11,14 +11,13 @@ $(function () {
         tabElementsRu: $('.tab-el-ru'),
         video: $('.video')
     };
-    let poemsArr = [];
 
     $.getJSON("poems.json", function (poems) {
-        poemsArr = poems;
         const poemNumber = getPoemNumberFromQueryString();
-        const poem = getPoemObject(poemNumber) || poems[0];
+        const poem = getPoemObject(poems, poemNumber) || poems[0];
+        el.input.val(poem.value);
         setPoemToMarkup(poem);
-        awesomeCompleteInit(poemsArr);
+        awesomeCompleteInit(poems);
     });
 
     /**
@@ -61,8 +60,8 @@ $(function () {
      * @param label
      * @returns {*}
      */
-    function getPoemObject(label) {
-        return poemsArr.filter(function (item) {
+    function getPoemObject(poems, label) {
+        return poems.filter(function (item) {
             return item.label === label;
         })[0];
     }
@@ -92,7 +91,7 @@ $(function () {
 
         document.getElementById('autocompele-input').addEventListener("awesomplete-select", function (event) {
             console.log(event.text.label, event.text.value);
-            const poem = getPoemObject(event.text.label);
+            const poem = getPoemObject(list, event.text.label);
             setPoemToMarkup(poem);
             updateQueryStringParam('poem', poem.label);
         });
