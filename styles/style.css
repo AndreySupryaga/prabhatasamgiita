@@ -15,6 +15,9 @@ body {
     line-height: 1.4;
 }
 
+.title {
+    font-size: 18px;
+}
 @media (min-width: 600px) {
     .container {
         max-width: 560px;
@@ -28,7 +31,7 @@ body {
 }
 
 .input-container {
-    padding: 40px 20px 20px;
+    padding: 30px 20px 0;
 }
 
 .input-container label {
@@ -53,6 +56,7 @@ input.radio-tab {
     position: absolute;
     left: -99999em;
     top: -99999em;
+    visibility: hidden;
 }
 
 input.radio-tab + label {

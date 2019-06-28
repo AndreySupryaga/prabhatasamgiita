@@ -90,7 +90,6 @@ $(function () {
         });
 
         document.getElementById('autocompele-input').addEventListener("awesomplete-select", function (event) {
-            console.log(event.text.label, event.text.value);
             const poem = getPoemObject(list, event.text.label);
             setPoemToMarkup(poem);
             updateQueryStringParam('poem', poem.label);
