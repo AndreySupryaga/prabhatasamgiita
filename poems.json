@@ -1,5 +1,16 @@
 [
   {
+    "label": "17",
+    "value": "17 (24/9/1982) D",
+    "text": "KET́E GECHE MEGH, GECHE UDVEG <br>ÁLOR JÁTRÁ PATHE <br>DÚR NIILIMÁY KÁRÁ D́EKE JÁY <br>SONÁLI SAORA RATHE <br><br>KET́E GECHE MEGH, GECHE UDVEG <br>ÁLOR JÁTRÁ PATHE <br><br>ESO BHÁI SABE E MAHOTSAVE, <br>ÁJIKÁR E ÚŚÁY <br>DHARAŃIIRA DHVANI ALAKÁR VÁŃII <br>EK HOYE MISHE JÁY",
+    "locale": {
+      "ru": "Облака растворились <br>и все тревоги исчезли. <br><br>В путешествии по пути света, <br>из далекой синей пустоты, <br>чей звонок прозвучал <br>от золотой колесницы солнца? <br><br>Приходите все на грандиозный фестиваль! <br>На этот праздник рассвета! <br>Шум земли <br>и сладкое послание небес <br>сегодня слились в одно. <br>",
+      "en": "The clouds have dissolved <br>and all anxieties disappeared. <br><br>On the journey on the path of light, <br>from the distant blue void, <br>whose call resounded <br>from the golden chariot of the sun? <br><br>Come one and all to the grand festival! <br>To this festival of dawn! <br>The din of earth <br>and the sweet message of heaven <br>have blended into one today. <br><br>The clouds have dissolved <br>and all anxieties disappeared."
+    },
+    "video": "<iframe width=\"530\" height=\"292\" src=\"https://www.youtube.com/embed/d7CZLxNgjVE\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+  },
+
+  {
     "label": "80",
     "value": "80 (06/11/1982) K",
     "text": "SVAPANE ESECHO ÁNANDA GHANA TUMI <br>SABÁR TUMI ÁNANDA <br><br>MANJULA MAHÁKÁSHE <br>MAHÁPRÁŃE ÁCHO MISHE <br>RÚPÁTIITA APARÚPA CHANDA TUMI <br>RÚPÁTIITA APARÚPA CHANDA <br>SABÁR TUMI ÁNANDA <br><br>COKHE ANURAKTI CARAŃE VIMUKTI <br>BHÁVÁTIITA SUDHÁ NIŚYANDA <br>TUMI, BHÁVÁTIITA SUDHÁ NIŚYANDA <br>SABÁR TUMI ÁNANDA <br><br>JENE BÁ NÁ JENE BHÁLOBÁSI EKEI JANE <br>SE BHÁLO BÁSÁR NÁHI ANTA <br>SABÁR TUMI ÁNANDA",
@@ -8,7 +19,6 @@
     },
     "video": "<iframe width=\"530\" height=\"292\" src=\"https://www.youtube.com/embed/TZHM-V4D60Q\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
   },
-
   {
     "label": "216",
     "value": "216 (19/01/1983) D",
