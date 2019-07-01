@@ -75,7 +75,8 @@ $(function () {
     function addAllPoemsLinksToMarkup(poems) {
         let poemsMarkupString = '';
         for (let i = 0; i < poems.length; i++) {
-            poemsMarkupString += '<span data-number="' + poems[i].label + '" >' + poems[i].label + ' </span>'
+            poemsMarkupString += '<span data-number="' + poems[i].label + '">' + poems[i].label + '</span>'
+            if (poems.length - 1 !== i) poemsMarkupString += ' | '
         }
         el.allPoems.append(poemsMarkupString);
 

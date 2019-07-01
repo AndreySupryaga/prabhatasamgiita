@@ -130,8 +130,11 @@ input.radio-tab2:checked ~ .tab-en-container {
     padding: 20px 20px 0;
 }
 
+.all-poems {
+    color: hsl(33, 80%, 60%);
+}
+
 .all-poems span {
     cursor: pointer;
-    color: hsl(33, 80%, 60%);
     font-size: 14px;
 }
